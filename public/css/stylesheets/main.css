@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #5A2D82;
+  height: 20vh;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+@media (min-width: 700px) {
+  header {
+    flex-direction: row;
+  }
+}
+@media (min-width: 700px) {
+  header .brand {
+    width: 30vw;
+  }
+}
+header .brand h1 {
+  width: 100%;
+  text-align: center;
+}
+header nav ul {
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 700px) {
+  header nav ul {
+    display: none;
+  }
+}
+header nav li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+header nav .nav-search {
+  display: flex;
+  align-items: center;
+}
+header nav .nav-search button {
+  background-color: #FFF;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.2rem 0 0 0.2rem;
+  border: none;
+  margin-top: 5px;
+}
+header nav .nav-search input#search {
+  width: 100%;
+  height: 2rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  border: none;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */
