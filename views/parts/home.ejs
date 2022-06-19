@@ -1,0 +1,27 @@
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">Home</li>
+</ol>
+
+
+<section class="cards">
+	<% for(var i = 0; i < products.length; i++)  {%>
+		<div class="card">
+			<div class="card-image">
+				<img src="https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864" alt="imagem do produto <%= products[i].title %>">
+			</div>
+			<div class="card-title">
+				<p><%= products[i].title %></p>
+			</div>
+			<div class="card-price">
+				<span>R$ <%= products[i].price %></span>
+			</div>
+			<button class="card-wishlist">
+				<svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFF" class="bi bi-heart-fill" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+				</svg>
+			</button>
+		</div>
+	<% } %>
+</section>
+	
+	

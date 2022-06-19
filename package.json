@@ -2,11 +2,11 @@
   "name": "wishlist",
   "version": "1.0.0",
   "description": "development of the Wishlist feature for front-end testing",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init:sass": "node-sass sass/main.sass style.css -w",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "author": "Otavio Cleyderman",
   "license": "ISC",

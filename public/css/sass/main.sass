@@ -6,10 +6,13 @@
   padding: 0
   box-sizing: border-box
 
-
+  li 
+    list-style: none
 
 body
   font-family: variables.$font-family
+  height: 100vh
+  width: 100%
 
 header
   @include mixins.mobile
@@ -48,11 +51,8 @@ header
       @include mixins.mobile
       position: fixed
       bottom: 0
-      
-
-        
+       
     li
-      list-style: none
       display: flex
       align-items: center
       gap: .5rem
@@ -98,10 +98,60 @@ header
     font-weight: 700
 
 main
-  @include mixins.mobile
-    max-width: variables.$container-width
-    padding: 10rem 1.5rem
-    margin: 0 auto
-    
-   
-    
+  padding: 10rem 1.5rem
+  margin: 0 auto
+
+
+section.cards
+  display: flex
+  flex-wrap: wrap
+  gap: 1rem
+  justify-content: center
+
+.card
+  border: 1px solid #cecece
+  max-width: 250px
+  max-height: 350px
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+  background: #FFF
+  padding: 1rem 1.5rem
+  position: relative
+  @include mixins.mobile 
+    z-index: -1
+
+  .card-image
+    width: 200px
+    height: 200px
+    img
+      width: 100%
+
+  .card-title
+    font-size: 100%
+    margin-top: 1rem
+    max-width: 240px
+
+  .card-price
+    margin-top: 2rem
+    color: variables.$price-color
+    font-weight: 700
+
+.card-wishlist
+  padding: .5rem
+  height: 2.5rem
+  clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%)
+  background-color: #000
+  border: none
+  border-radius: 2px 2px 0 0
+  position: absolute
+  top: -3px
+  left: 0
+  cursor: pointer
+
+  // .bi.bi-heart-fill
+  //   fill: #FFF
+
+.selected
+  fill: red
