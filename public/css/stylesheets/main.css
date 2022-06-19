@@ -8,20 +8,26 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-header {
-  background-color: #5A2D82;
-  height: 20vh;
-  color: #FFF;
-  display: flex;
-  flex-direction: column;
-  max-width: 1600px;
-  padding: 1.5rem;
-  margin: 0 auto;
+@media (max-width: 700px) {
+  header {
+    position: fixed;
+    width: 100%;
+    background-color: #5A2D82;
+    height: 20vh;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media (min-width: 700px) {
   header {
     flex-direction: row;
   }
+}
+header .brand {
+  max-width: 1600px;
+  padding: 1.5rem;
+  margin: 0 auto;
 }
 @media (min-width: 700px) {
   header .brand {
@@ -35,10 +41,15 @@ header .brand h1 {
 header nav ul {
   display: flex;
   gap: 1rem;
+  position: fixed;
+  bottom: 0;
 }
 @media (max-width: 700px) {
   header nav ul {
-    display: none;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #cecece;
+    background-color: #FFF;
   }
 }
 header nav li {
@@ -48,7 +59,24 @@ header nav li {
   gap: 0.5rem;
   margin-bottom: 0.3rem;
 }
+@media (max-width: 700px) {
+  header nav li a {
+    width: 5.8rem;
+    height: 4rem;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  header nav li a p {
+    font-size: 0.7rem;
+  }
+}
 header nav .nav-search {
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
 }
@@ -67,6 +95,23 @@ header nav .nav-search input#search {
   border: none;
   padding: 8px;
   margin-top: 5px;
+}
+
+.breadcrumb {
+  padding: 1rem;
+  list-style: none;
+}
+.breadcrumb .breadcrumb-item {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  main {
+    max-width: 1600px;
+    padding: 10rem 1.5rem;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

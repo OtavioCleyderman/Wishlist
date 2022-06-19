@@ -6,21 +6,27 @@
   padding: 0
   box-sizing: border-box
 
+
+
 body
   font-family: variables.$font-family
 
 header
-  background-color: variables.$bg-header
-  height: 20vh
-  color: variables.$primary-color
-  display: flex
-  flex-direction: column
+  @include mixins.mobile
+    position: fixed
+    width: 100%
+    background-color: variables.$bg-header
+    height: 20vh
+    color: variables.$primary-color
+    display: flex
+    flex-direction: column
+    
+
   @include mixins.tablet
     flex-direction: row
-  @include mixins.container
-  
 
   .brand  
+    @include mixins.container 
     @include mixins.tablet
       width: 30vw
     h1
@@ -32,21 +38,46 @@ header
     ul
       display: flex
       gap: 1rem
-      
       @include mixins.mobile
-        display: none
+        width: 100%  
+        justify-content: space-between
+        border-top: 1px solid #cecece
+        background-color: #FFF
+        
 
+      @include mixins.mobile
+      position: fixed
+      bottom: 0
+      
 
+        
     li
       list-style: none
       display: flex
       align-items: center
       gap: .5rem
       margin-bottom: .3rem
+      
+      @include mixins.mobile
+        a
+          width: 5.8rem
+          height: 4rem
+          text-decoration: none
+          color: variables.$secondary-color
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: center
+          gap: .3rem
+
+          p
+            font-size: .7rem
 
     .nav-search
+      padding: 0 1.5rem
       display: flex
       align-items: center
+
 
       button
         background-color: variables.$primary-color
@@ -58,8 +89,19 @@ header
 
       input#search
         @include mixins.input
+
+.breadcrumb
+  padding: 1rem 
+  list-style: none
+  .breadcrumb-item
+    font-size: 1rem
+    font-weight: 700
+
+main
+  @include mixins.mobile
+    max-width: variables.$container-width
+    padding: 10rem 1.5rem
+    margin: 0 auto
     
-  
-
-
-
+   
+    
