@@ -3,6 +3,7 @@ const axios = require('axios')
 const route = express.Router();
 
 
+
 route.get('/', async (req, res) => {
 
   // Como no axios já vem o response, então já tiro o data direto do response
@@ -11,12 +12,12 @@ route.get('/', async (req, res) => {
   
 })
 
+
 route.get('/wishlist', (req, res) => {
   res.render('index', {page: 'wishlist'})
 })
 
-// route.get('/', (req, res) => res.render('index', { page: 'enter-room' }))
-// route.get('/create-pass', (req, res) => res.render('index', { page: 'create-pass' }))
+
 
 
 module.exports = route

@@ -13,8 +13,23 @@ body {
   width: 100%;
 }
 
+div.container {
+  max-width: 1600px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
 @media (max-width: 700px) {
-  header {
+  div.container {
+    padding: 10rem 0;
+  }
+}
+
+header {
+  background-color: #5A2D82;
+}
+
+@media (max-width: 700px) {
+  div.header-container {
     position: fixed;
     width: 100%;
     background-color: #5A2D82;
@@ -22,49 +37,73 @@ body {
     color: #FFF;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 @media (min-width: 701px) {
-  header {
+  div.header-container {
+    background-color: #5A2D82;
+    height: 20vh;
+    width: 100%;
+    display: flex;
     flex-direction: row;
+    text-align: center;
+    align-items: baseline;
   }
 }
-header .brand {
+div.header-container .brand {
   max-width: 1600px;
   padding: 1.5rem;
   margin: 0 auto;
 }
 @media (min-width: 701px) {
-  header .brand {
+  div.header-container .brand {
     width: 30vw;
+    color: #FFF;
   }
 }
-header .brand h1 {
+div.header-container .brand h1 {
   width: 100%;
   text-align: center;
 }
-header nav ul {
-  display: flex;
-  gap: 1rem;
-  position: fixed;
-  bottom: 0;
+div.header-container nav.nav-menu {
+  width: 60vw;
 }
 @media (max-width: 700px) {
-  header nav ul {
+  div.header-container nav.nav-menu #nav-item-location,
+div.header-container nav.nav-menu #nav-item-attendance {
+    display: none;
+  }
+}
+@media (min-width: 701px) {
+  div.header-container nav.nav-menu #nav-item-home,
+div.header-container nav.nav-menu #nav-item-cart {
+    display: none;
+  }
+}
+div.header-container nav.nav-menu ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 100%;
+}
+@media (max-width: 700px) {
+  div.header-container nav.nav-menu ul {
     width: 100%;
     justify-content: space-between;
     border-top: 1px solid #cecece;
     background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }
-header nav li {
+div.header-container nav.nav-menu li {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.3rem;
 }
 @media (max-width: 700px) {
-  header nav li a {
+  div.header-container nav.nav-menu li a {
     width: 5.8rem;
     height: 4rem;
     text-decoration: none;
@@ -75,16 +114,35 @@ header nav li {
     justify-content: center;
     gap: 0.3rem;
   }
-  header nav li a p {
+  div.header-container nav.nav-menu li a p {
     font-size: 0.7rem;
   }
 }
-header nav .nav-search {
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
+@media (min-width: 701px) {
+  div.header-container nav.nav-menu li a {
+    width: 10rem;
+    height: 4rem;
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  div.header-container nav.nav-menu li a p {
+    font-size: 0.7rem;
+  }
 }
-header nav .nav-search button {
+div.header-container nav.nav-menu .nav-search {
+  display: flex;
+  padding: 0 1.5rem;
+}
+div.header-container nav.nav-menu .nav-search #search {
+  outline: none;
+  width: 100%;
+}
+div.header-container nav.nav-menu .nav-search button {
   background-color: #FFF;
   width: 2rem;
   height: 2rem;
@@ -92,7 +150,7 @@ header nav .nav-search button {
   border: none;
   margin-top: 5px;
 }
-header nav .nav-search input#search {
+div.header-container nav.nav-menu .nav-search input#search {
   width: 100%;
   height: 2rem;
   border-radius: 0 0.2rem 0.2rem 0;
@@ -102,17 +160,16 @@ header nav .nav-search input#search {
 }
 
 .breadcrumb {
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   list-style: none;
+  display: flex;
+  gap: 0.2rem;
 }
 .breadcrumb .breadcrumb-item {
+  text-decoration: none;
+  color: #000;
   font-size: 1rem;
   font-weight: 700;
-}
-
-main {
-  padding: 10rem 1.5rem;
-  margin: 0 auto;
 }
 
 section.cards {
@@ -145,6 +202,7 @@ section.cards {
 }
 .card .card-image img {
   width: 100%;
+  object-fit: cover;
 }
 .card .card-title {
   font-size: 100%;
@@ -168,10 +226,6 @@ section.cards {
   top: -3px;
   left: 0;
   cursor: pointer;
-}
-
-.selected {
-  fill: red;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -13,8 +13,18 @@ body
   font-family: variables.$font-family
   height: 100vh
   width: 100%
+  
+div.container
+  @include mixins.container 
+  @include mixins.mobile
+    padding: 10rem 0
+
+
 
 header
+  background-color: variables.$bg-header
+
+div.header-container  
   @include mixins.mobile
     position: fixed
     width: 100%
@@ -23,41 +33,59 @@ header
     color: variables.$primary-color
     display: flex
     flex-direction: column
+    align-items: center
     
-
   @include mixins.tablet
+    background-color: variables.$bg-header
+    height: 20vh
+    width: 100%
+    display: flex
     flex-direction: row
+    text-align: center
+    align-items: baseline
 
   .brand  
     @include mixins.container 
     @include mixins.tablet
       width: 30vw
+      color: variables.$primary-color
     h1
       width: 100%
       text-align: center
       
 
-  nav  
+  nav.nav-menu
+    width: 60vw 
+
+    @include mixins.mobile
+      #nav-item-location,
+      #nav-item-attendance
+        display: none
+    @include mixins.tablet
+      #nav-item-home,
+      #nav-item-cart
+        display: none
+
     ul
-      display: flex
-      gap: 1rem
       @include mixins.mobile
         width: 100%  
         justify-content: space-between
         border-top: 1px solid #cecece
         background-color: #FFF
-        
+        position: fixed
+        bottom: 0
+        left: 0
 
-      @include mixins.mobile
-      position: fixed
-      bottom: 0
+      display: flex
+      justify-content: space-between
+      gap: 1rem
+      max-width: 100%
+       
        
     li
       display: flex
-      align-items: center
       gap: .5rem
-      margin-bottom: .3rem
-      
+
       @include mixins.mobile
         a
           width: 5.8rem
@@ -73,11 +101,30 @@ header
           p
             font-size: .7rem
 
-    .nav-search
-      padding: 0 1.5rem
-      display: flex
-      align-items: center
+      @include mixins.tablet
+        a
+          width: 10rem
+          height: 4rem
+          text-decoration: none
+          color: variables.$primary-color
+          display: flex
+          flex-direction: row
+          align-items: center
+          justify-content: center
+          gap: .4rem
 
+          p
+            font-size: .7rem
+
+
+
+    .nav-search
+      display: flex
+      padding: 0 1.5rem
+
+      #search
+        outline: none
+        width: 100%
 
       button
         background-color: variables.$primary-color
@@ -91,15 +138,16 @@ header
         @include mixins.input
 
 .breadcrumb
-  padding: 1rem 
+  padding: 1rem .5rem 
   list-style: none
+  display: flex
+  gap: .2rem
   .breadcrumb-item
+    text-decoration: none
+    color: variables.$secondary-color
     font-size: 1rem
     font-weight: 700
-
-main
-  padding: 10rem 1.5rem
-  margin: 0 auto
+    
 
 
 section.cards
@@ -127,6 +175,7 @@ section.cards
     height: 200px
     img
       width: 100%
+      object-fit: cover
 
   .card-title
     font-size: 100%
@@ -150,8 +199,3 @@ section.cards
   left: 0
   cursor: pointer
 
-  // .bi.bi-heart-fill
-  //   fill: #FFF
-
-.selected
-  fill: red
