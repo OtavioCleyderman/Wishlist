@@ -2,10 +2,54 @@
 	<a href="/" class="breadcrumb-item">Home</a> <li class="breadcrumb-item"> > Lista de desejos</li>
 </ol>
 
-<div id="output">
-	Wishlist
-</div>
+<section id="cards-wishlist" class="cards">
+	
+</section>
 
+
+
+<script>
+	
+		let wishlistData = JSON.parse(localStorage.getItem('wishlist'))
+
+		for(let i = 0; i < wishlistData.length; i++) {
+			wishlistData[i].price
+			const imageSrc = 'https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864'
+			const svgSrc = '/icons/x-circle.svg'
+
+			const card = document.createElement('div')
+			card.className = 'card'
+
+			const cardImage = document.createElement('img')
+			cardImage.className = 'card-image'
+			cardImage.src = imageSrc
+
+			const cardTitle = document.createElement('div')
+			cardTitle.className = 'card-title'
+			cardTitle.innerText = wishlistData[i].title
+
+			const cardPrice = document.createElement('div')
+			cardPrice.className = 'card-price'
+			cardPrice.innerText = wishlistData[i].price
+
+			const cardButton = document.createElement('button')
+			cardButton.className = 'card-wishlist-delete'
+			
+			const imageSvg = document.createElement('img')
+			imageSvg.className = 'iconDeleteWishlist'
+			imageSvg.src = svgSrc
+
+			card.append(cardImage)
+			card.append(cardTitle)
+			card.append(cardPrice)
+			cardButton.appendChild(imageSvg)
+			card.append(cardButton)
+
+			const sectionCard = document.getElementById('cards-wishlist')
+			sectionCard.appendChild(card)
+	 } 
+
+</script>
 
 
 

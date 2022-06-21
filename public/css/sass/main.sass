@@ -17,12 +17,11 @@ body
 div.container
   @include mixins.container 
   @include mixins.mobile
-    padding: 10rem 0
-
-
+    padding: 12rem 0
 
 header
   background-color: variables.$bg-header
+
 
 div.header-container  
   @include mixins.mobile
@@ -34,39 +33,48 @@ div.header-container
     display: flex
     flex-direction: column
     align-items: center
-    
-  @include mixins.tablet
+  @include mixins.desktop
+    @include mixins.container
     background-color: variables.$bg-header
     height: 20vh
-    width: 100%
+    
     display: flex
     flex-direction: row
     text-align: center
     align-items: baseline
+    justify-content: center
 
   .brand  
     @include mixins.container 
-    @include mixins.tablet
+    @include mixins.desktop
+      margin: 0
+      padding: 0 0 0 .5rem
       width: 30vw
       color: variables.$primary-color
     h1
       width: 100%
-      text-align: center
+      @include mixins.desktop
+        text-align: start
       
 
-  nav.nav-menu
-    width: 60vw 
-
+  nav
     @include mixins.mobile
+      width: 60vw  
       #nav-item-location,
       #nav-item-attendance
         display: none
-    @include mixins.tablet
+    @include mixins.desktop
+      @include mixins.break-point
+        width: 60vw
+        text-align: start
       #nav-item-home,
       #nav-item-cart
         display: none
 
     ul
+      display: flex
+      justify-content: space-between
+      max-width: 100%
       @include mixins.mobile
         width: 100%  
         justify-content: space-between
@@ -76,16 +84,8 @@ div.header-container
         bottom: 0
         left: 0
 
-      display: flex
-      justify-content: space-between
-      gap: 1rem
-      max-width: 100%
-       
-       
     li
       display: flex
-      gap: .5rem
-
       @include mixins.mobile
         a
           width: 5.8rem
@@ -101,7 +101,7 @@ div.header-container
           p
             font-size: .7rem
 
-      @include mixins.tablet
+      @include mixins.desktop
         a
           width: 10rem
           height: 4rem
@@ -116,26 +116,24 @@ div.header-container
           p
             font-size: .7rem
 
-
-
     .nav-search
       display: flex
-      padding: 0 1.5rem
+      width: 100%
+      @include mixins.desktop
+        padding: 0 1.5rem
 
       #search
+        @include mixins.input
         outline: none
-        width: 100%
 
       button
         background-color: variables.$primary-color
         width: 2rem
-        height: 2rem
+        height: 3rem
         border-radius: .2rem 0 0 .2rem
         border: none
         margin-top: 5px
 
-      input#search
-        @include mixins.input
 
 .breadcrumb
   padding: 1rem .5rem 
@@ -199,3 +197,17 @@ section.cards
   left: 0
   cursor: pointer
 
+
+.card-wishlist-delete
+  position: absolute
+  top: -1px
+  right: 1px
+  cursor: pointer
+  background-color: transparent 
+  border: none
+  
+.iconDeleteWishlist 
+  height: 2rem
+  width: 1.5rem
+  cursor: pointer
+  
