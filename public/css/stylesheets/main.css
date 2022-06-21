@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* li {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100%;
+}
+
+div.container {
+  max-width: 1500px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  div.container {
+    padding: 12rem 0;
+  }
+}
+
+header {
+  background-color: #5A2D82;
+}
+
+@media (max-width: 700px) {
+  div.header-container {
+    position: fixed;
+    width: 100%;
+    background-color: #5A2D82;
+    height: 20vh;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 701px) {
+  div.header-container {
+    max-width: 1500px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: #5A2D82;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: baseline;
+    justify-content: center;
+  }
+}
+div.header-container .brand {
+  max-width: 1500px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+@media (min-width: 701px) {
+  div.header-container .brand {
+    margin: 0;
+    padding: 0 0 0 0.5rem;
+    width: 30vw;
+    color: #FFF;
+  }
+}
+div.header-container .brand h1 {
+  width: 100%;
+}
+@media (min-width: 701px) {
+  div.header-container .brand h1 {
+    text-align: start;
+  }
+}
+@media (max-width: 700px) {
+  div.header-container nav {
+    width: 60vw;
+  }
+  div.header-container nav #nav-item-location,
+div.header-container nav #nav-item-attendance {
+    display: none;
+  }
+}
+@media (min-width: 701px) and (min-width: 850px) {
+  div.header-container nav {
+    width: 60vw;
+    text-align: start;
+  }
+}
+@media (min-width: 701px) {
+  div.header-container nav #nav-item-home,
+div.header-container nav #nav-item-cart {
+    display: none;
+  }
+}
+div.header-container nav ul {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+@media (max-width: 700px) {
+  div.header-container nav ul {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #cecece;
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+div.header-container nav li {
+  display: flex;
+}
+@media (max-width: 700px) {
+  div.header-container nav li a {
+    width: 5.8rem;
+    height: 4rem;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  div.header-container nav li a p {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 701px) {
+  div.header-container nav li a {
+    width: 10rem;
+    height: 4rem;
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  div.header-container nav li a p {
+    font-size: 0.7rem;
+  }
+}
+div.header-container nav .nav-search {
+  display: flex;
+  width: 100%;
+}
+@media (min-width: 701px) {
+  div.header-container nav .nav-search {
+    padding: 0 1.5rem;
+  }
+}
+div.header-container nav .nav-search #search {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  border: none;
+  padding: 8px;
+  margin-top: 5px;
+  outline: none;
+}
+div.header-container nav .nav-search button {
+  background-color: #FFF;
+  width: 2rem;
+  height: 3rem;
+  border-radius: 0.2rem 0 0 0.2rem;
+  border: none;
+  margin-top: 5px;
+}
+
+.breadcrumb {
+  padding: 1rem 0.5rem;
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+}
+.breadcrumb .breadcrumb-item {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+section.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #cecece;
+  max-width: 250px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #FFF;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+@media (max-width: 700px) {
+  .card {
+    z-index: -1;
+  }
+}
+.card .card-image {
+  width: 200px;
+  height: 200px;
+}
+.card .card-image img {
+  width: 100%;
+  object-fit: cover;
+}
+.card .card-title {
+  font-size: 100%;
+  margin-top: 1rem;
+  max-width: 240px;
+}
+.card .card-price {
+  margin-top: 2rem;
+  color: #EBD341;
+  font-weight: 700;
+}
+
+.card-wishlist {
+  padding: 0.5rem;
+  height: 2.5rem;
+  clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+  background-color: #000;
+  border: none;
+  border-radius: 2px 2px 0 0;
+  position: absolute;
+  top: -3px;
+  left: 0;
+  cursor: pointer;
+}
+
+.card-wishlist-delete {
+  position: absolute;
+  top: -1px;
+  right: 1px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.iconDeleteWishlist {
+  height: 2rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
