@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-	<a class="breadcrumb-item" href="/" >Home</a>
+	<a class="breadcrumb-item-home" href="/" >Home</a>
 </ol>
 
 <section class="cards">
@@ -12,7 +12,7 @@
 				<p><%= products[i].title %></p>
 			</div>
 			<div class="card-price">
-				<span>R$ <%= products[i].price %></span>
+				<span>R$ <%= products[i].price.toFixed(2).toString().replace(".", ",") %></span>
 			</div>
 			<button class="card-wishlist">
 				<svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFF" class="bi bi-heart-fill" viewBox="0 0 16 16">

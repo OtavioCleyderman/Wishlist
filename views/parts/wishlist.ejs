@@ -1,5 +1,5 @@
 <ol class="breadcrumb" >
-	<a href="/" class="breadcrumb-item">Home</a> <li class="breadcrumb-item"> > Lista de desejos</li>
+	<a href="/" class="breadcrumb-item">Home > </a> <li class="breadcrumb-item-wishlist"> Lista de desejos</li>
 </ol>
 
 <section id="cards-wishlist" class="cards">
@@ -11,42 +11,57 @@
 <script>
 	
 		let wishlistData = JSON.parse(localStorage.getItem('wishlist'))
+		const sectionCard = document.getElementById('cards-wishlist')
+		console.log(wishlistData.length)
 
-		for(let i = 0; i < wishlistData.length; i++) {
-			wishlistData[i].price
-			const imageSrc = 'https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864'
-			const svgSrc = '/icons/x-circle.svg'
+		if( wishlistData.length == 0){
 
-			const card = document.createElement('div')
-			card.className = 'card'
+			const divText = document.createElement('div')
+			divText.className = 'no-wishlist'
+			const h1Text = document.createElement('h1')
+			h1Text.className = 'no-wishlist-title'
+			h1Text.innerText = 'Sua lista de desejos está vazia no momento!'
+			divText.appendChild(h1Text)
+			sectionCard.appendChild(divText)
 
-			const cardImage = document.createElement('img')
-			cardImage.className = 'card-image'
-			cardImage.src = imageSrc
+		} else {
 
-			const cardTitle = document.createElement('div')
-			cardTitle.className = 'card-title'
-			cardTitle.innerText = wishlistData[i].title
+			for(let i = 0; i < wishlistData.length; i++) {
+				wishlistData[i].price
+				const imageSrc = 'https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864'
+				const svgSrc = '/icons/x-circle.svg'
+	
+				const card = document.createElement('div')
+				card.className = 'card'
+	
+				const cardImage = document.createElement('img')
+				cardImage.className = 'card-image'
+				cardImage.src = imageSrc
+	
+				const cardTitle = document.createElement('div')
+				cardTitle.className = 'card-title'
+				cardTitle.innerText = wishlistData[i].title
+	
+				const cardPrice = document.createElement('div')
+				cardPrice.className = 'card-price'
+				cardPrice.innerText = wishlistData[i].price
+	
+				const cardButton = document.createElement('button')
+				cardButton.className = 'card-wishlist-delete'
+				
+				const imageSvg = document.createElement('img')
+				imageSvg.className = 'iconDeleteWishlist'
+				imageSvg.src = svgSrc
+	
+				card.append(cardImage)
+				card.append(cardTitle)
+				card.append(cardPrice)
+				cardButton.appendChild(imageSvg)
+				card.append(cardButton)
 
-			const cardPrice = document.createElement('div')
-			cardPrice.className = 'card-price'
-			cardPrice.innerText = wishlistData[i].price
+				sectionCard.appendChild(card)
+		}
 
-			const cardButton = document.createElement('button')
-			cardButton.className = 'card-wishlist-delete'
-			
-			const imageSvg = document.createElement('img')
-			imageSvg.className = 'iconDeleteWishlist'
-			imageSvg.src = svgSrc
-
-			card.append(cardImage)
-			card.append(cardTitle)
-			card.append(cardPrice)
-			cardButton.appendChild(imageSvg)
-			card.append(cardButton)
-
-			const sectionCard = document.getElementById('cards-wishlist')
-			sectionCard.appendChild(card)
 	 } 
 
 </script>

@@ -10,4 +10,4 @@ server.use(express.static('./public/'))
 
 server.use(route)
 
-server.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || port)

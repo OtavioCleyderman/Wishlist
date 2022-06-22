@@ -20,12 +20,13 @@ div.container {
 }
 @media (max-width: 700px) {
   div.container {
-    padding: 12rem 0;
+    padding: 2rem 0 5rem;
   }
 }
 
 header {
   background-color: #5A2D82;
+  height: 23vh;
 }
 
 @media (max-width: 700px) {
@@ -33,7 +34,6 @@ header {
     position: fixed;
     width: 100%;
     background-color: #5A2D82;
-    height: 20vh;
     color: #FFF;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,6 @@ header {
     padding: 1.5rem;
     margin: 0 auto;
     background-color: #5A2D82;
-    height: 20vh;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -127,6 +126,9 @@ div.header-container nav li {
     justify-content: center;
     gap: 0.3rem;
   }
+  div.header-container nav li a:hover {
+    background-color: #e2dfdf;
+  }
   div.header-container nav li a p {
     font-size: 0.7rem;
   }
@@ -143,12 +145,20 @@ div.header-container nav li {
     justify-content: center;
     gap: 0.4rem;
   }
+  div.header-container nav li a:hover {
+    color: #e2dfdf;
+  }
   div.header-container nav li a p {
     font-size: 0.7rem;
   }
 }
 div.header-container nav .nav-search {
   display: flex;
+}
+@media (max-width: 700px) {
+  div.header-container nav .nav-search {
+    padding-bottom: 1rem;
+  }
 }
 @media (min-width: 701px) {
   div.header-container nav .nav-search {
@@ -189,11 +199,17 @@ div.header-container nav .nav-search button {
   display: flex;
   gap: 0.2rem;
 }
-.breadcrumb .breadcrumb-item {
+.breadcrumb .breadcrumb-item,
+.breadcrumb .breadcrumb-item-home,
+.breadcrumb .breadcrumb-item-wishlist {
   text-decoration: none;
   color: #000;
   font-size: 1rem;
   font-weight: 700;
+}
+.breadcrumb .breadcrumb-item-home,
+.breadcrumb .breadcrumb-item-wishlist {
+  text-decoration: underline;
 }
 
 section.cards {
@@ -265,6 +281,12 @@ section.cards {
   height: 2rem;
   width: 1.5rem;
   cursor: pointer;
+}
+
+.no-wishlist {
+  max-width: 1500px;
+  padding: 1.5rem;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=main.css.map */

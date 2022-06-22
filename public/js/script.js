@@ -6,18 +6,20 @@ let wishlist = JSON.parse(localStorage.getItem('wishlist')) || []
 let heartIconSelected = JSON.parse(localStorage.getItem('heartIconSelected')) || []
 
 
-function setWishlistHome() {
+// Função para verificar e pegar os produtos que já tem salvo no local storage e refletir na página home para o usuário
+function updateWishlist() {
   for(let i = 0; i < wishlistButton.length; i++){
 
     // Pegar os dados de cada card, dados: Imagem, titulo e preço. Precisarei para inserir no localStorage e depois pegar esses dados e renderizar na tela wishlist
     const imageSrc = card[i].firstElementChild.firstElementChild.currentSrc
     const titleAndPrice = card[i].outerText.split("\n\n")
     const title = titleAndPrice[0]
-    const price = titleAndPrice[1]
+    let price = titleAndPrice[1]
+    
   
     // Verifica se o produto já está no localStorage, por segurança confirmando pelo nome e preço
-    const index = wishlist.findIndex(element => element.title === title & element.price === price)
-    
+    const index = wishlist.findIndex(product => product.title === title & product.price === price)
+
     // Caso tenha produtos no localStorage, ou seja, na wishlist do cliente, na página de produtos reflete qual está em sua lista também
     if(index != -1) {
       heartIcon[i].style.fill = 'red'
@@ -25,9 +27,10 @@ function setWishlistHome() {
       heartIcon[i].style.fill = '#FFF'
     }
 
+    
     // Já com o seu click, consegue adicionar ou remover produtos da sua wishlist direto da página de produtos
     wishlistButton[i].addEventListener('click', (e) => {
-      const idx = wishlist.findIndex(element => element.title === title & element.price === price)
+      const idx = wishlist.findIndex(product => product.title === title & product.price === price)
       console.log(e)
       if(idx != -1) {
         wishlist.splice(idx, 1)
@@ -39,16 +42,15 @@ function setWishlistHome() {
         heartIcon[i].style.fill = 'red'
         console.log(idx)
         console.log(title, price)
-      } /* Depois verificar como refatorar os dois blocos if acima*/
+      } 
   
-
       // inserindo o produto escolhido pelo cliente para sua wishlist no localStorage
       localStorage.setItem('wishlist', JSON.stringify(wishlist))
     })
+
   }
 }
-
-setWishlistHome()
+updateWishlist()
 
 
 function wishlistRemove() {
