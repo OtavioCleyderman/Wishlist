@@ -10,6 +10,4 @@ server.use(express.static('./public/'))
 
 server.use(route)
 
-server.listen(port, () => {
-  console.log(`Server started on port ${port}`)
-})
+server.listen(process.env.PORT || 3000)
