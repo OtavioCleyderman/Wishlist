@@ -29,9 +29,8 @@ function updateWishlist() {
 
     
     // Já com o seu click, consegue adicionar ou remover produtos da sua wishlist direto da página de produtos
-    wishlistButton[i].addEventListener('click', (e) => {
+    wishlistButton[i].addEventListener('click', () => {
       const idx = wishlist.findIndex(product => product.title === title & product.price === price)
-      console.log(e)
       if(idx != -1) {
         wishlist.splice(idx, 1)
         heartIcon[i].style.fill = '#FFF'
