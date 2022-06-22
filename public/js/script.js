@@ -5,7 +5,8 @@ const heartIcon = document.querySelectorAll('.bi-heart-fill')
 let wishlist = JSON.parse(localStorage.getItem('wishlist')) || []
 let heartIconSelected = JSON.parse(localStorage.getItem('heartIconSelected')) || []
 
-function wishlistUpdateHome() {
+
+function setWishlistHome() {
   for(let i = 0; i < wishlistButton.length; i++){
 
     // Pegar os dados de cada card, dados: Imagem, titulo e preço. Precisarei para inserir no localStorage e depois pegar esses dados e renderizar na tela wishlist
@@ -14,7 +15,7 @@ function wishlistUpdateHome() {
     const title = titleAndPrice[0]
     const price = titleAndPrice[1]
   
-    // Verifica se o produto já está no localStorage
+    // Verifica se o produto já está no localStorage, por segurança confirmando pelo nome e preço
     const index = wishlist.findIndex(element => element.title === title & element.price === price)
     
     // Caso tenha produtos no localStorage, ou seja, na wishlist do cliente, na página de produtos reflete qual está em sua lista também
@@ -25,8 +26,9 @@ function wishlistUpdateHome() {
     }
 
     // Já com o seu click, consegue adicionar ou remover produtos da sua wishlist direto da página de produtos
-    wishlistButton[i].addEventListener('click', () => {
+    wishlistButton[i].addEventListener('click', (e) => {
       const idx = wishlist.findIndex(element => element.title === title & element.price === price)
+      console.log(e)
       if(idx != -1) {
         wishlist.splice(idx, 1)
         heartIcon[i].style.fill = '#FFF'
@@ -46,7 +48,7 @@ function wishlistUpdateHome() {
   }
 }
 
-wishlistUpdateHome()
+setWishlistHome()
 
 
 function wishlistRemove() {

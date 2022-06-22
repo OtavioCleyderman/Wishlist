@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init:sass": "node-sass sass/main.sass style.css -w",
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Otavio Cleyderman",
   "license": "ISC",
