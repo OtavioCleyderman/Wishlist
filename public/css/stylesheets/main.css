@@ -155,11 +155,6 @@ div.header-container nav li {
 div.header-container nav .nav-search {
   display: flex;
 }
-@media (max-width: 700px) {
-  div.header-container nav .nav-search {
-    padding-bottom: 1rem;
-  }
-}
 @media (min-width: 701px) {
   div.header-container nav .nav-search {
     margin: 0 1.5rem;
