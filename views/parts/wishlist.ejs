@@ -2,19 +2,17 @@
 	<a href="/" class="breadcrumb-item">Home > </a> <li class="breadcrumb-item-wishlist"> Lista de desejos</li>
 </ol>
 
-<section id="cards-wishlist" class="cards">
-	
-</section>
+<section id="cards-wishlist" class="cards"></section>
 
 
 <script>
 	
 		let wishlistData = JSON.parse(localStorage.getItem('wishlist'))
 		const sectionCard = document.getElementById('cards-wishlist')
-		console.log(wishlistData.length)
 
+		// Verifica se a wishlist está vazia
 		if( wishlistData.length == 0){
-
+			// Se estiver vazia, renderiza uma mensagem h1 dentro de uma div informando que a lista está vazia
 			const divText = document.createElement('div')
 			divText.className = 'no-wishlist'
 			const h1Text = document.createElement('h1')
@@ -24,9 +22,8 @@
 			sectionCard.appendChild(divText)
 
 		} else {
-
+			// Se não estiver vazia redendiza um card com as informações do produto de desejo do cliente
 			for(let i = 0; i < wishlistData.length; i++) {
-				wishlistData[i].price
 				const imageSrc = 'https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864'
 				const svgSrc = '/icons/x-circle.svg'
 	

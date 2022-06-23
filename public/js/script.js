@@ -5,22 +5,18 @@ const heartIcon = document.querySelectorAll('.bi-heart-fill')
 let wishlist = JSON.parse(localStorage.getItem('wishlist')) || []
 let heartIconSelected = JSON.parse(localStorage.getItem('heartIconSelected')) || []
 
-
-// Função para verificar e pegar os produtos que já tem salvo no local storage e refletir na página home para o usuário
+// Função verifica a wishlist e reflete na página home marcando o icone heart
+//   Ao usuário clicar no icone heart, se não tiver na wishlist o produto, é marcado como vermelho esse icone 
+//   e adicionado na wishlist o produto. Se estiver na lista, o clique remove esse produto da wishlist
 function updateWishlist() {
   for(let i = 0; i < wishlistButton.length; i++){
-
-    // Pegar os dados de cada card, dados: Imagem, titulo e preço. Precisarei para inserir no localStorage e depois pegar esses dados e renderizar na tela wishlist
     const imageSrc = card[i].firstElementChild.firstElementChild.currentSrc
     const titleAndPrice = card[i].outerText.split("\n\n")
     const title = titleAndPrice[0]
     let price = titleAndPrice[1]
     
-  
-    // Verifica se o produto já está no localStorage, por segurança confirmando pelo nome e preço
     const index = wishlist.findIndex(product => product.title === title & product.price === price)
-
-    // Caso tenha produtos no localStorage, ou seja, na wishlist do cliente, na página de produtos reflete qual está em sua lista também
+    
     if(index != -1) {
       heartIcon[i].style.fill = 'red'
     } else {
@@ -28,19 +24,16 @@ function updateWishlist() {
     }
 
     
-    // Já com o seu click, consegue adicionar ou remover produtos da sua wishlist direto da página de produtos
+    // Com o click do cliente no icone de favoritar o produto, consegue adicionar ou remover produtos da sua 
+    // wishlist e mostrar pelo icone heart se está na wishlist ou não
     wishlistButton[i].addEventListener('click', () => {
       const idx = wishlist.findIndex(product => product.title === title & product.price === price)
       if(idx != -1) {
         wishlist.splice(idx, 1)
         heartIcon[i].style.fill = '#FFF'
-        console.log(idx)
-        console.log(title, price)
       } else {
         wishlist.push({imageSrc, title, price})
         heartIcon[i].style.fill = 'red'
-        console.log(idx)
-        console.log(title, price)
       } 
   
       // inserindo o produto escolhido pelo cliente para sua wishlist no localStorage
@@ -51,7 +44,9 @@ function updateWishlist() {
 }
 updateWishlist()
 
-
+// Função atua na pagina de visualização da wishlist. Se usuário clicar no icone de "x" para remover um produto 
+//  da wishlist, a função remove o produto da wishlist na hora e atualiza a visualização(página) sobre a wishlist
+//  do usuário   
 function wishlistRemove() {
   for(let i = 0; i < wishlist.length; i++){
     wishlistButtonDelete[i].addEventListener('click', () => {
@@ -64,9 +59,6 @@ function wishlistRemove() {
 }
 
 wishlistRemove()
-
-
-
 
 
 
