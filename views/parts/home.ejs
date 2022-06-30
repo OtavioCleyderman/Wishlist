@@ -5,8 +5,14 @@
 <section class="cards">
 	<% for(var i = 0; i < products.length; i++)  {%>
 		<div class="card">
+			<span style="display: none" class="card-id" ><%= products[i].id %></span>
 			<div class="card-image">
-				<img src="https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864" alt="imagem do produto <%= products[i].title %>">
+				<!-- Abaixo colocado o endereço "https://via.placeholder.com/300x300"  -->
+				<% if(products[i].image === null || products[i].image === undefined || products[i].image === "https://via.placeholder.com/300x300") { %>
+				<img src="https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864" alt="imagem generica para referenciar produtos>">
+				<% } else { %>
+				<img src="<%= products[i].image %>" alt="imagem do produto <%= products[i].title %>">	
+				<% } %>
 			</div>
 			<div class="card-title">
 				<p><%= products[i].title %></p>
@@ -22,5 +28,9 @@
 		</div>
 	<% } %>
 </section>
+
+
+
+
 	
 	

@@ -24,7 +24,7 @@
 		} else {
 			// Se não estiver vazia redendiza um card com as informações do produto de desejo do cliente
 			for(let i = 0; i < wishlistData.length; i++) {
-				const imageSrc = 'https://static.zattini.com.br/produtos/camiseta-nike-dri-fit-academy-masculina/06/HZM-1374-006/HZM-1374-006_zoom1.jpg?ts=1607092864'
+
 				const svgSrc = '/icons/x-circle.svg'
 	
 				const card = document.createElement('div')
@@ -32,7 +32,7 @@
 	
 				const cardImage = document.createElement('img')
 				cardImage.className = 'card-image'
-				cardImage.src = imageSrc
+				cardImage.src = wishlistData[i].imageSrc
 	
 				const cardTitle = document.createElement('div')
 				cardTitle.className = 'card-title'
